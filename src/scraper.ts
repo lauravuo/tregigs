@@ -28,11 +28,8 @@ export const parseDate = (
   dateStr: string,
   currentRefDate: Date = new Date(),
 ): Date | null => {
-  // Format dd.MM.
-  // We need to handle year. Assume current year, but if the date is significantly in the past (e.g. > 6 months), adds 1 year.
-  // Actually, simpler logic for now: if parsed date is before "today" (ignoring time), maybe it's next year?
-  // But concert lists are usually future.
-  // Better approach: try parsing with current year.
+  // Format is usually "dd.MM."
+  // We assume the date is in the current year.
 
   const currentYear = currentRefDate.getFullYear();
   let parsedDate = parse(`${dateStr}${currentYear}`, "d.M.yyyy", new Date());
@@ -41,9 +38,9 @@ export const parseDate = (
     return null;
   }
 
-  // If the parsed date is more than a month in the past, it's likely for the next year (e.g. in Dec viewing Jan dates)
-  // However, simpler heuristic:
-  // If we are in December, and we see "1.1.", that's next year.
+  // Logic to handle year rollover:
+  // If we are currently in December (month 11) and the parsed date is in January (month 0),
+  // assume the concert is next year.
   if (currentRefDate.getMonth() === 11 && parsedDate.getMonth() === 0) {
     parsedDate = addYears(parsedDate, 1);
   }
@@ -64,10 +61,7 @@ export const parseConcerts = (html: string): Concert[] => {
     return [];
   }
 
-  // Iterate simplified: Find keys (venues) and values (paragraphs)
-  // The structure seems to be h3 (Venue) -> p (Content with <br> separated lines)
-
-  console.log(`Debug: Found ${$("h3").length} h3 elements`);
+  // Structure: h3 (Venue) -> p (Content with <br> separated lines)
 
   $("h3").each((_, el) => {
     const venueName = $(el).text().trim();
