@@ -1,0 +1,40 @@
+{
+  "name": "tregigs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/build.ts",
+    "build": "tsx src/build.ts",
+    "check": "biome check .",
+    "format": "biome check --write .",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauravuo/tregigs.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/lauravuo/tregigs/issues"
+  },
+  "homepage": "https://github.com/lauravuo/tregigs#readme",
+  "keywords": [],
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.8",
+    "@types/cheerio": "^1.0.0",
+    "@types/node": "^25.0.2",
+    "@vitest/coverage-v8": "^4.0.15",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cheerio": "^1.1.2",
+    "date-fns": "^4.1.0"
+  }
+}

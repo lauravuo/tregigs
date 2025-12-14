@@ -1,0 +1,35 @@
+name: Daily Concert Update
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 4 * * *' # 4 AM UTC daily
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      upload: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: public
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          force_orphan: true
