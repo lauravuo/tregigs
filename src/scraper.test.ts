@@ -44,7 +44,7 @@ describe("scraper", () => {
       expect(concerts[2].date.getDate()).toBe(15);
     });
 
-    it('extracts venue url', () => {
+    it("extracts venue url", () => {
       const html = `
         <h1>Konsertit | Tampere</h1>
         <h3>Venue With Link</h3>
@@ -52,16 +52,16 @@ describe("scraper", () => {
         <p>20.12. Artist</p>
       `;
       const concerts = parseConcerts(html);
-      expect(concerts[0].venueUrl).toBe('https://example.com');
+      expect(concerts[0].venueUrl).toBe("https://example.com");
     });
 
-    it('handles invalid structure gracefully', () => {
-      const html = '<div>No proper content</div>';
+    it("handles invalid structure gracefully", () => {
+      const html = "<div>No proper content</div>";
       const concerts = parseConcerts(html);
       expect(concerts).toEqual([]);
     });
 
-    it('handles missing date match', () => {
+    it("handles missing date match", () => {
       const html = `
         <h1>Konsertit | Tampere</h1>
         <h3>Venue A</h3>
