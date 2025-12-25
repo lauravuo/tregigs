@@ -1,6 +1,6 @@
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
-import { format, isSameDay } from "date-fns";
+import { format, isSameDay, startOfToday } from "date-fns";
 import { type Concert, fetchHtml, parseConcerts } from "./scraper.js";
 
 const ensureDir = async (dir: string) => {
@@ -52,8 +52,16 @@ export const build = async () => {
   const html = await fetchHtml();
 
   console.log("Parsing concerts...");
-  const concerts = parseConcerts(html);
-  console.log(`Found ${concerts.length} concerts.`);
+  console.log("Parsing concerts...");
+  const allConcerts = parseConcerts(html);
+
+  // Filter out past concerts
+  const today = startOfToday();
+  const concerts = allConcerts.filter((c) => c.date >= today); // Keep today's gigs
+
+  console.log(
+    `Found ${allConcerts.length} total concerts, ${concerts.length} upcoming.`,
+  );
 
   console.log("Generating HTML...");
   const gigsHtml = formatGigs(concerts);

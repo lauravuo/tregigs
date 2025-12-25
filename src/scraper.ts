@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { addYears, isValid, parse } from "date-fns";
+import { addYears, isValid, parse, startOfDay } from "date-fns";
 
 export interface Concert {
   date: Date;
@@ -45,7 +45,7 @@ export const parseDate = (
     parsedDate = addYears(parsedDate, 1);
   }
 
-  return parsedDate;
+  return startOfDay(parsedDate);
 };
 
 export const parseConcerts = (html: string): Concert[] => {
