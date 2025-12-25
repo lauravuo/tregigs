@@ -1,3 +1,4 @@
+import { addDays, subDays } from "date-fns";
 import { describe, expect, it, vi } from "vitest";
 import { formatGigs } from "./build.js";
 import type { Concert } from "./scraper.js";
@@ -75,7 +76,7 @@ describe("build", () => {
       vi.mocked(scraper.fetchHtml).mockResolvedValue("<html>mock</html>");
       vi.mocked(scraper.parseConcerts).mockReturnValue([
         {
-          date: new Date(2023, 10, 1),
+          date: addDays(new Date(), 30),
           artist: "Test Artist",
           venue: "Test Venue",
         },
@@ -102,6 +103,59 @@ describe("build", () => {
       );
 
       consoleSpy.mockRestore();
+      vi.resetModules();
+      vi.restoreAllMocks();
+    });
+    it("filters out past concerts", async () => {
+      // Mock fs
+      const fs = await import("node:fs/promises");
+      const scraper = await import("./scraper.js");
+      const { build } = await import("./build.js");
+
+      vi.mock("node:fs/promises", async () => {
+        return {
+          readFile: vi.fn(),
+          writeFile: vi.fn(),
+          access: vi.fn(),
+          mkdir: vi.fn(),
+          constants: {},
+        };
+      });
+
+      vi.mock("./scraper.js", async () => {
+        return {
+          fetchHtml: vi.fn(),
+          parseConcerts: vi.fn(),
+          parseDate: vi.fn(),
+        };
+      });
+
+      const yesterday = subDays(new Date(), 1);
+      const tomorrow = addDays(new Date(), 1);
+
+      // Define behaviors
+      vi.mocked(scraper.fetchHtml).mockResolvedValue("<html>mock</html>");
+      vi.mocked(scraper.parseConcerts).mockReturnValue([
+        { date: yesterday, artist: "Past Artist", venue: "Past Venue" },
+        { date: tomorrow, artist: "Future Artist", venue: "Future Venue" },
+      ]);
+      vi.mocked(fs.readFile).mockResolvedValue("{{CONTENT}}");
+      vi.mocked(fs.access).mockResolvedValue(undefined);
+
+      await build();
+
+      // Verify file write
+      expect(fs.writeFile).toHaveBeenCalledWith(
+        expect.stringContaining("public/index.html"),
+        expect.stringContaining("Future Artist"),
+      );
+
+      // Should NOT contain the past artist
+      expect(fs.writeFile).not.toHaveBeenCalledWith(
+        expect.stringContaining("public/index.html"),
+        expect.stringContaining("Past Artist"),
+      );
+
       vi.resetModules();
       vi.restoreAllMocks();
     });
