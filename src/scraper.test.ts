@@ -17,6 +17,13 @@ describe("scraper", () => {
       expect(result?.getFullYear()).toBe(2024);
       expect(result?.getMonth()).toBe(0);
     });
+
+    it("handles year rollback (Jan -> Dec of previous year)", () => {
+      const now = new Date(2026, 0, 10); // Jan 10 2026
+      const result = parseDate("20.12.", now); // Dec 20
+      expect(result?.getFullYear()).toBe(2025);
+      expect(result?.getMonth()).toBe(11);
+    });
   });
 
   describe("parseConcerts", () => {
