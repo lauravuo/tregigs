@@ -45,6 +45,15 @@ export const parseDate = (
     parsedDate = addYears(parsedDate, 1);
   }
 
+  // Logic to handle year rollback:
+  // If we are currently in early year (e.g. Jan/Feb) and the parsed date is late in the year (e.g. Oct/Nov/Dec),
+  // assume the concert was in the previous year.
+  // This is because the scraper might be running in Jan 2026, finding gigs from Dec 2025.
+  // Since we default to currentYear (2026), correct it to 2025.
+  if (currentRefDate.getMonth() <= 2 && parsedDate.getMonth() >= 9) {
+    parsedDate = addYears(parsedDate, -1);
+  }
+
   return startOfDay(parsedDate);
 };
 

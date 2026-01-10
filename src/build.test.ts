@@ -44,6 +44,18 @@ describe("build", () => {
       const html = formatGigs(concerts);
       expect(html).not.toContain('<a href="');
     });
+
+    it("uses first letter of venue name as placeholder icon if icon is missing", () => {
+      const concerts: Concert[] = [
+        {
+          date: new Date(2023, 11, 15),
+          artist: "Artist A",
+          venue: "Unknown Venue",
+        },
+      ];
+      const html = formatGigs(concerts);
+      expect(html).toContain("https://placehold.co/50?text=U");
+    });
   });
 
   describe("build execution", () => {
