@@ -32,7 +32,7 @@
     "@biomejs/biome": "^2.3.11",
     "@types/cheerio": "^1.0.0",
     "@types/node": "^25.0.10",
-    "@vitest/coverage-v8": "^4.0.17",
+    "@vitest/coverage-v8": "^4.0.18",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "ts-node": "^10.9.2",
