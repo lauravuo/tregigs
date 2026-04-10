@@ -31,7 +31,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.11",
     "@types/cheerio": "^1.0.0",
-    "@types/node": "^25.5.2",
+    "@types/node": "^25.6.0",
     "@vitest/coverage-v8": "^4.1.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
