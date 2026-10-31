@@ -19,20 +19,24 @@ A static website generator that scrapes concert listings from [kulttuuritoimitus
 ## Getting Started
 
 1. **Clone the repository:**
+
    ```bash
    git clone <repository-url>
    cd tregigs
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Run the build locally:**
+
    ```bash
    npm run build
    ```
+
    This will generate the static site in the `public/` directory.
 
 4. **Verify the output:**

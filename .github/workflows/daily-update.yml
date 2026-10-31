@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 4 * * *' # 4 AM UTC daily
+    - cron: "0 4 * * *" # 4 AM UTC daily
   workflow_dispatch: # Allow manual trigger
 
 permissions:
@@ -23,7 +23,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-
       - name: Download build artifacts
         uses: actions/download-artifact@v8
         with:

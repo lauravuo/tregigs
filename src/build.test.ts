@@ -1,7 +1,27 @@
+import * as fs from "node:fs/promises";
 import { addDays, subDays } from "date-fns";
-import { describe, expect, it, vi } from "vitest";
-import { formatGigs } from "./build.js";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { build, formatGigs } from "./build.js";
 import type { Concert } from "./scraper.js";
+import * as scraper from "./scraper.js";
+
+vi.mock("node:fs/promises", async () => ({
+  readFile: vi.fn(),
+  writeFile: vi.fn(),
+  access: vi.fn(),
+  mkdir: vi.fn(),
+  constants: {},
+}));
+
+vi.mock("./scraper.js", async () => ({
+  fetchHtml: vi.fn(),
+  parseConcerts: vi.fn(),
+  parseDate: vi.fn(),
+}));
+
+beforeEach(() => {
+  vi.clearAllMocks();
+});
 
 describe("build", () => {
   describe("formatGigs", () => {
@@ -60,30 +80,6 @@ describe("build", () => {
 
   describe("build execution", () => {
     it("fetches data, generates html, and writes to file", async () => {
-      // Mock fs
-      const fs = await import("node:fs/promises");
-      const scraper = await import("./scraper.js");
-      const { build } = await import("./build.js");
-
-      // Setup mocks
-      vi.mock("node:fs/promises", async () => {
-        return {
-          readFile: vi.fn(),
-          writeFile: vi.fn(),
-          access: vi.fn(),
-          mkdir: vi.fn(),
-          constants: {},
-        };
-      });
-
-      vi.mock("./scraper.js", async () => {
-        return {
-          fetchHtml: vi.fn(),
-          parseConcerts: vi.fn(),
-          parseDate: vi.fn(), // needed if imported
-        };
-      });
-
       // Define behaviors
       vi.mocked(scraper.fetchHtml).mockResolvedValue("<html>mock</html>");
       vi.mocked(scraper.parseConcerts).mockReturnValue([
@@ -115,33 +111,9 @@ describe("build", () => {
       );
 
       consoleSpy.mockRestore();
-      vi.resetModules();
       vi.restoreAllMocks();
     });
     it("filters out past concerts", async () => {
-      // Mock fs
-      const fs = await import("node:fs/promises");
-      const scraper = await import("./scraper.js");
-      const { build } = await import("./build.js");
-
-      vi.mock("node:fs/promises", async () => {
-        return {
-          readFile: vi.fn(),
-          writeFile: vi.fn(),
-          access: vi.fn(),
-          mkdir: vi.fn(),
-          constants: {},
-        };
-      });
-
-      vi.mock("./scraper.js", async () => {
-        return {
-          fetchHtml: vi.fn(),
-          parseConcerts: vi.fn(),
-          parseDate: vi.fn(),
-        };
-      });
-
       const yesterday = subDays(new Date(), 1);
       const tomorrow = addDays(new Date(), 1);
 
@@ -167,8 +139,6 @@ describe("build", () => {
         expect.stringContaining("public/index.html"),
         expect.stringContaining("Past Artist"),
       );
-
-      vi.resetModules();
       vi.restoreAllMocks();
     });
   });
