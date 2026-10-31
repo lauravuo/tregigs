@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tampere Gigs</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #b3b3b3;
+            --accent: #2e7d32; /* Greenish/Teal */
+            --accent-bright: #4caf50;
+            --header-bg: rgba(18, 18, 18, 0.85);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 16px 40px 16px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            padding: 24px 0 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--text-sub);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .date-group {
+            margin-bottom: 32px;
+        }
+
+        .date-header {
+            color: var(--accent-bright);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            position: sticky;
+            top: 86px; /* Below header */
+            background-color: var(--bg-color);
+            padding: 8px 0;
+            z-index: 90;
+        }
+
+        .gig-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.1s ease;
+        }
+
+        .gig-card:active {
+            transform: scale(0.98);
+        }
+
+        .gig-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 16px;
+            background-color: #333;
+        }
+
+        .time {
+            font-size: 14px;
+            color: var(--text-sub);
+            width: 50px;
+            flex-shrink: 0;
+            font-weight: 500;
+        }
+
+        .details {
+            flex-grow: 1;
+        }
+
+        .artist {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .venue {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tampere Gigs</h1>
+            <div class="subtitle">This Week's Live Music in Pirkanmaa</div>
+        </header>
+
+        <main id="gigs-list">
+            <!-- Gigs injected here -->
+            <div class="date-header">Saturday, 31 Oct</div><a href="https://barkotelo.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://barkotelo.fi/gallery/Kotelo_neg.jpg?ts=1767886429" class="gig-icon" alt="Bar Kotelo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Black Royal, Themata, Palehørse</div>
+                <div class="venue">Bar Kotelo</div>
+            </div>
+        </div>
+        </a><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">DJ Kridlokk, JV</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/huurupiilo/?locale=fi_FI" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=H" class="gig-icon" alt="Huurupiilo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Apartido, Sado Mode, We Are NKL</div>
+                <div class="venue">Huurupiilo</div>
+            </div>
+        </div>
+        </a><a href="https://johnscotts.se/ratina/event/john-scotts-ratina-live/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=J" class="gig-icon" alt="John Scott’s" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Suuri Tuntematon</div>
+                <div class="venue">John Scott’s</div>
+            </div>
+        </div>
+        </a><a href="https://www.katubaariaxu.fi/Tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.katubaariaxu.fi/.cm4all/uproc.php/0/.Tampereen%20ratikka.PNG/picture-1200?_=187147e0198" class="gig-icon" alt="Katubaari Axu" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Kesyt Jätkät</div>
+                <div class="venue">Katubaari Axu</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Maanalainen/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://maanalainen.net/wp-content/uploads/2023/06/Maanalainen_logo_orig2-ILMAN-TAUSTAA-non-interlaced.png" class="gig-icon" alt="Kulttuurikeskus Maanalainen" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Astral Sleep, Murder Hollow, Betelzeus</div>
+                <div class="venue">Kulttuurikeskus Maanalainen</div>
+            </div>
+        </div>
+        </a><a href="https://www.nekalab.fi/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=N" class="gig-icon" alt="Nekalab" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Viihdekuoro Cantarelli</div>
+                <div class="venue">Nekalab</div>
+            </div>
+        </div>
+        </a><a href="https://paappa.fi/index.php/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=P" class="gig-icon" alt="Paapan Kapakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Friendship Connection</div>
+                <div class="venue">Paapan Kapakka</div>
+            </div>
+        </div>
+        </a><a href="https://www.pethaus.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.pethaus.fi/wp-content/uploads/2024/04/cropped-pethaus-logo-180x180.jpg" class="gig-icon" alt="Pethaus" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Puolalaisia hautajaislauluja</div>
+                <div class="venue">Pethaus</div>
+            </div>
+        </div>
+        </a><a href="https://kujakolli.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://kujakolli.fi/wordpress/wp-content/uploads/2019/03/logo.png" class="gig-icon" alt="Pub Kujakolli" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">KQ Groove</div>
+                <div class="venue">Pub Kujakolli</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tampere Jazz Happening: Nebbia // Kääriäinen, Raoul Björkenheim & Paal Nilssen-Love, Elifantree</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Amaranthe, Self Deception, Ankor</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tampere Jazz Happening: Aruán Ortiz “I’ve Known Rivers Trio”, Mikko Innasen Juhlayhtye: Jazz Suomi 100 Nyt!, Colin Vallon Trio [Pakkahuone]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tampere Jazz Happening: Benjamin Herman Trio ft. Tomoaki Baba, Kolinga, Manu Delago & Max ZT [Pakkahuone]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Varjobaari/events/?ref=page_internal" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Varjobaari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">The Dark, The Fair Attempts</div>
+                <div class="venue">Varjobaari</div>
+            </div>
+        </div>
+        </a><a href="https://vastavirta.net/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://vastavirta.net/wp-content/uploads/vv-favicon.png" class="gig-icon" alt="Vastavirta-klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">NPC, Arktirektum, Ghostbustering</div>
+                <div class="venue">Vastavirta-klubi</div>
+            </div>
+        </div>
+        </a><a href="https://vastavirta.net/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://vastavirta.net/wp-content/uploads/vv-favicon.png" class="gig-icon" alt="Vastavirta-klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Kivesveto Go-Go, Sanktio</div>
+                <div class="venue">Vastavirta-klubi</div>
+            </div>
+        </div>
+        </a><a href="https://ilonatre.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Viihdemaailma Ilona" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Jimmy Cola</div>
+                <div class="venue">Viihdemaailma Ilona</div>
+            </div>
+        </div>
+        </a><a href="https://teatteri.valkeakoski.fi/ohjelmisto/cafe-teatro/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Valkeakoski: Café Teatro" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Salla Flinkman</div>
+                <div class="venue">Valkeakoski: Café Teatro</div>
+            </div>
+        </div>
+        </a><div class="date-header">Sunday, 1 Nov</div><a href="https://www.nekalab.fi/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=N" class="gig-icon" alt="Nekalab" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tampereen rautatieläisten soittokunta</div>
+                <div class="venue">Nekalab</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Yamato – Drummers of Japan</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tampere Jazz Happening: Beiggja, Claude Tchamitchian Poetic Power, Joel Ross Gospel Music [Pakkahuone]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tampere Jazz Happening 2026: iYa Voy! [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://vastavirta.net/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://vastavirta.net/wp-content/uploads/vv-favicon.png" class="gig-icon" alt="Vastavirta-klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Ville Leinonen plays Danzig</div>
+                <div class="venue">Vastavirta-klubi</div>
+            </div>
+        </div>
+        </a><div class="date-header">Tuesday, 3 Nov</div><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Arkai</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><div class="date-header">Wednesday, 4 Nov</div><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Pekka Kuusisto & Gabriel Kahane</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Modem, Sokar [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><div class="date-header">Thursday, 5 Nov</div><a href="https://www.instagram.com/atmostampere/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=A" class="gig-icon" alt="Atmos Brewing & Taproom" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Annukka, Kauris</div>
+                <div class="venue">Atmos Brewing & Taproom</div>
+            </div>
+        </div>
+        </a><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Yona</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Rahvaanmusiikin kerho: Orffit</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Jenni Vartiainen</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Varjobaari/events/?ref=page_internal" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Varjobaari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Bleeding Radiators, The Gonzoes</div>
+                <div class="venue">Varjobaari</div>
+            </div>
+        </div>
+        </a><div class="date-header">Friday, 6 Nov</div><a href="https://barkotelo.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://barkotelo.fi/gallery/Kotelo_neg.jpg?ts=1767886429" class="gig-icon" alt="Bar Kotelo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Orphan Waves, Malamute</div>
+                <div class="venue">Bar Kotelo</div>
+            </div>
+        </div>
+        </a><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Risto</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="https://johnscotts.se/ratina/event/john-scotts-ratina-live/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=J" class="gig-icon" alt="John Scott’s" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">The Bunkers</div>
+                <div class="venue">John Scott’s</div>
+            </div>
+        </div>
+        </a><a href="https://www.katubaariaxu.fi/Tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.katubaariaxu.fi/.cm4all/uproc.php/0/.Tampereen%20ratikka.PNG/picture-1200?_=187147e0198" class="gig-icon" alt="Katubaari Axu" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Arto ja Jouni plays Deadline</div>
+                <div class="venue">Katubaari Axu</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Maanalainen/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://maanalainen.net/wp-content/uploads/2023/06/Maanalainen_logo_orig2-ILMAN-TAUSTAA-non-interlaced.png" class="gig-icon" alt="Kulttuurikeskus Maanalainen" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">The Regulator, Remissions, Cause a Riot</div>
+                <div class="venue">Kulttuurikeskus Maanalainen</div>
+            </div>
+        </div>
+        </a><a href="https://www.pethaus.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.pethaus.fi/wp-content/uploads/2024/04/cropped-pethaus-logo-180x180.jpg" class="gig-icon" alt="Pethaus" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">A Free Impro Eve</div>
+                <div class="venue">Pethaus</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/profile.php?id=61551476098175&sk=events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=P" class="gig-icon" alt="Pub Armo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Sean & Mereau, Elias Brunelle</div>
+                <div class="venue">Pub Armo</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Sonia</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tampere Filharmonia: Myrskyn silmässä</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tuure Kilpeläinen</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Saimaa</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Olga [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Varjobaari/events/?ref=page_internal" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Varjobaari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Ghost Frequencies, Paavi Franciscuksen pääsiäinen, Strider</div>
+                <div class="venue">Varjobaari</div>
+            </div>
+        </div>
+        </a><a href="https://vastavirta.net/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://vastavirta.net/wp-content/uploads/vv-favicon.png" class="gig-icon" alt="Vastavirta-klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Crooked Mouth, Henna Emilia Hietamäki, Vesper Kennings</div>
+                <div class="venue">Vastavirta-klubi</div>
+            </div>
+        </div>
+        </a><a href="https://vastavirta.net/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://vastavirta.net/wp-content/uploads/vv-favicon.png" class="gig-icon" alt="Vastavirta-klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">931FEST: Kahtia, Sonic Poison, Cleansing, Last In The Chamber, Death at Birth</div>
+                <div class="venue">Vastavirta-klubi</div>
+            </div>
+        </div>
+        </a><div class="date-header">Saturday, 7 Nov</div><a href="https://barkotelo.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://barkotelo.fi/gallery/Kotelo_neg.jpg?ts=1767886429" class="gig-icon" alt="Bar Kotelo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Spiritus Mortis, Cardinals Folly, Wolfshead</div>
+                <div class="venue">Bar Kotelo</div>
+            </div>
+        </div>
+        </a><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Aavikko, O Samuli A</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="https://johnscotts.se/ratina/event/john-scotts-ratina-live/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=J" class="gig-icon" alt="John Scott’s" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Pepe Johanson</div>
+                <div class="venue">John Scott’s</div>
+            </div>
+        </div>
+        </a><a href="https://www.katubaariaxu.fi/Tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.katubaariaxu.fi/.cm4all/uproc.php/0/.Tampereen%20ratikka.PNG/picture-1200?_=187147e0198" class="gig-icon" alt="Katubaari Axu" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Zenev</div>
+                <div class="venue">Katubaari Axu</div>
+            </div>
+        </div>
+        </a><a href="https://www.nekalab.fi/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=N" class="gig-icon" alt="Nekalab" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tuomas Räisänen</div>
+                <div class="venue">Nekalab</div>
+            </div>
+        </div>
+        </a><a href="https://kujakolli.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://kujakolli.fi/wordpress/wp-content/uploads/2019/03/logo.png" class="gig-icon" alt="Pub Kujakolli" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Bayou Ramblers</div>
+                <div class="venue">Pub Kujakolli</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Edicti, Annieeva</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Aliisa Syrjä</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Viikate, Krypta</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="https://ttt-teatteri.fi/ttt-klubin-esityskalenteri/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://ttt-teatteri.fi/favicon.svg" class="gig-icon" alt="TTT-Klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Dave Lindholm & Pepe Ahlqvist</div>
+                <div class="venue">TTT-Klubi</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Varjobaari/events/?ref=page_internal" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Varjobaari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Freakangel, Lirpo, Sugar Rody</div>
+                <div class="venue">Varjobaari</div>
+            </div>
+        </div>
+        </a><a href="https://vastavirta.net/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://vastavirta.net/wp-content/uploads/vv-favicon.png" class="gig-icon" alt="Vastavirta-klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Seurat, Kätyrlauma</div>
+                <div class="venue">Vastavirta-klubi</div>
+            </div>
+        </div>
+        </a><a href="https://vastavirta.net/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://vastavirta.net/wp-content/uploads/vv-favicon.png" class="gig-icon" alt="Vastavirta-klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">931FEST: Graveyard Goblin, Teleny, Killing Frost, Eyes Sewn Shut</div>
+                <div class="venue">Vastavirta-klubi</div>
+            </div>
+        </div>
+        </a><div class="date-header">Sunday, 8 Nov</div><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Muumit esittää: Pyrstötähteä esittämässä</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Faunien iltapäivä: Nautinnon huumaa</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><div class="date-header">Tuesday, 10 Nov</div><a href="https://www.tampere.fi/kirjastot/kirjastojen-tapahtumat" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=M" class="gig-icon" alt="Metso" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Luentokonserttisarja: 540 vuotta kitaran historiaa</div>
+                <div class="venue">Metso</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">TamJazz-klubi: Equally Stupid</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><div class="date-header">Wednesday, 11 Nov</div><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Kaj</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Askon Kalmari [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Arppa</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><div class="date-header">Thursday, 12 Nov</div><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Verneri Pohjola, Tuomo Prättälä</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="https://www.tahmelanhuvila.fi/tulevat-tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tahmelanhuvila.fi/wp-content/uploads/2022/06/huvila_vaaka_punainen_testi3105.png.webp" class="gig-icon" alt="Tahmelan huvila" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Solar Blue</div>
+                <div class="venue">Tahmelan huvila</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tampere Filharmonia: Vesimusiikkia</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Maija Vilkkumaa, Linda</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Kemmuru [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Sherwoodin Mies Orkesteri</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><a href="https://teatteri.valkeakoski.fi/ohjelmisto/cafe-teatro/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Valkeakoski: Café Teatro" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Pekka Murto & co.</div>
+                <div class="venue">Valkeakoski: Café Teatro</div>
+            </div>
+        </div>
+        </a><div class="date-header">Friday, 13 Nov</div><a href="https://barkotelo.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://barkotelo.fi/gallery/Kotelo_neg.jpg?ts=1767886429" class="gig-icon" alt="Bar Kotelo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Bat Salad – Black Sabbath Tribute</div>
+                <div class="venue">Bar Kotelo</div>
+            </div>
+        </div>
+        </a><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Scottish Music Night: Dàimh + Rachel Hair & Ron Jappy</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="https://johnscotts.se/ratina/event/john-scotts-ratina-live/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=J" class="gig-icon" alt="John Scott’s" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Juha Saunala & Teemu Lindberg</div>
+                <div class="venue">John Scott’s</div>
+            </div>
+        </div>
+        </a><a href="https://www.katubaariaxu.fi/Tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.katubaariaxu.fi/.cm4all/uproc.php/0/.Tampereen%20ratikka.PNG/picture-1200?_=187147e0198" class="gig-icon" alt="Katubaari Axu" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Dee Kourtsman</div>
+                <div class="venue">Katubaari Axu</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Maanalainen/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://maanalainen.net/wp-content/uploads/2023/06/Maanalainen_logo_orig2-ILMAN-TAUSTAA-non-interlaced.png" class="gig-icon" alt="Kulttuurikeskus Maanalainen" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Rääkkäys, Pepita Vanni, Sairaus, Sanni Mäntyranta</div>
+                <div class="venue">Kulttuurikeskus Maanalainen</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/profile.php?id=61551476098175&sk=events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=P" class="gig-icon" alt="Pub Armo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tuomo Pee</div>
+                <div class="venue">Pub Armo</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Viivi</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="https://ttt-teatteri.fi/ttt-klubin-esityskalenteri/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://ttt-teatteri.fi/favicon.svg" class="gig-icon" alt="TTT-Klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">The Miracle: A Night Qith Queen</div>
+                <div class="venue">TTT-Klubi</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Varjobaari/events/?ref=page_internal" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Varjobaari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Dethrone, Mancoon, Wildfire</div>
+                <div class="venue">Varjobaari</div>
+            </div>
+        </div>
+        </a><a href="https://vastavirta.net/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://vastavirta.net/wp-content/uploads/vv-favicon.png" class="gig-icon" alt="Vastavirta-klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">8 Bits High, La Murga, Cartridge Kid</div>
+                <div class="venue">Vastavirta-klubi</div>
+            </div>
+        </div>
+        </a><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tuure Kilpeläinen</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><div class="date-header">Saturday, 14 Nov</div><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Knipi</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="https://www.katubaariaxu.fi/Tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.katubaariaxu.fi/.cm4all/uproc.php/0/.Tampereen%20ratikka.PNG/picture-1200?_=187147e0198" class="gig-icon" alt="Katubaari Axu" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Howling Bones plays Mark Lanegan</div>
+                <div class="venue">Katubaari Axu</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Maanalainen/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://maanalainen.net/wp-content/uploads/2023/06/Maanalainen_logo_orig2-ILMAN-TAUSTAA-non-interlaced.png" class="gig-icon" alt="Kulttuurikeskus Maanalainen" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Black Mambo, The Pistones, Daggerplay</div>
+                <div class="venue">Kulttuurikeskus Maanalainen</div>
+            </div>
+        </div>
+        </a><a href="https://nokiaarena.fi/en/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://nokiaarena.fi/wp-content/uploads/2023/02/cropped-favicon-192x192.png" class="gig-icon" alt="Nokia Arena" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Isac Elliot</div>
+                <div class="venue">Nokia Arena</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/profile.php?id=61551476098175&sk=events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=P" class="gig-icon" alt="Pub Armo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Bus 63, Anemones</div>
+                <div class="venue">Pub Armo</div>
+            </div>
+        </div>
+        </a><a href="https://kujakolli.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://kujakolli.fi/wordpress/wp-content/uploads/2019/03/logo.png" class="gig-icon" alt="Pub Kujakolli" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Kaimo Duo</div>
+                <div class="venue">Pub Kujakolli</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Päkä</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Vilma Jää, Luomuduo</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Semmarit</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="https://ttt-teatteri.fi/ttt-klubin-esityskalenteri/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://ttt-teatteri.fi/favicon.svg" class="gig-icon" alt="TTT-Klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Frigg</div>
+                <div class="venue">TTT-Klubi</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Uniklubi [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Litku Klemetti, Joku Iiris [Pakkahuone]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Varjobaari/events/?ref=page_internal" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Varjobaari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Buryfication, Refusal, Mörv, God Forsaken</div>
+                <div class="venue">Varjobaari</div>
+            </div>
+        </div>
+        </a><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Nothing for Money plays Dire Straits</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><div class="date-header">Sunday, 15 Nov</div><a href="https://www.nekalab.fi/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=N" class="gig-icon" alt="Nekalab" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Hot Heros feat. Ville Leinonen</div>
+                <div class="venue">Nekalab</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Napalm Death [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><div class="date-header">Tuesday, 17 Nov</div><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Roy Montgomery</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><div class="date-header">Wednesday, 18 Nov</div><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Viktoria Tolstoy & Jacob Karlzon</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Canyon Lights</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Graham Bonnet Band, Wishing Well [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Goldrust plays Neil Young & Crazy Horse</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><div class="date-header">Thursday, 19 Nov</div><a href="https://barkotelo.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://barkotelo.fi/gallery/Kotelo_neg.jpg?ts=1767886429" class="gig-icon" alt="Bar Kotelo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Legion of the Damned, Torchia, Vitriolic</div>
+                <div class="venue">Bar Kotelo</div>
+            </div>
+        </div>
+        </a><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Asla Jo, Saga Olsson</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="https://www.nekalab.fi/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=N" class="gig-icon" alt="Nekalab" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Pelkkä Poutanen</div>
+                <div class="venue">Nekalab</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Ricky-Tick Big Band & Julkinen Sana</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Jokrates [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><div class="date-header">Friday, 20 Nov</div><a href="https://johnscotts.se/ratina/event/john-scotts-ratina-live/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=J" class="gig-icon" alt="John Scott’s" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Maritta Kuula</div>
+                <div class="venue">John Scott’s</div>
+            </div>
+        </div>
+        </a><a href="https://www.katubaariaxu.fi/Tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.katubaariaxu.fi/.cm4all/uproc.php/0/.Tampereen%20ratikka.PNG/picture-1200?_=187147e0198" class="gig-icon" alt="Katubaari Axu" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Amiraali & Adjutantti</div>
+                <div class="venue">Katubaari Axu</div>
+            </div>
+        </div>
+        </a><a href="https://www.nekalab.fi/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=N" class="gig-icon" alt="Nekalab" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Rosita Luu Duo</div>
+                <div class="venue">Nekalab</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Benjamin</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="https://ttt-teatteri.fi/ttt-klubin-esityskalenteri/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://ttt-teatteri.fi/favicon.svg" class="gig-icon" alt="TTT-Klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Timo Kahilainen feat. Heikki Hela & Just in Time</div>
+                <div class="venue">TTT-Klubi</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Olavi Uusivirta [Pakkahuone]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Varjobaari/events/?ref=page_internal" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Varjobaari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">V-Osasto, Neutron Blitz, Burning Pigs</div>
+                <div class="venue">Varjobaari</div>
+            </div>
+        </div>
+        </a><div class="date-header">Saturday, 21 Nov</div><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Mika Maijala</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="https://johnscotts.se/ratina/event/john-scotts-ratina-live/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=J" class="gig-icon" alt="John Scott’s" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Aarne Tenkanen</div>
+                <div class="venue">John Scott’s</div>
+            </div>
+        </div>
+        </a><a href="https://www.katubaariaxu.fi/Tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.katubaariaxu.fi/.cm4all/uproc.php/0/.Tampereen%20ratikka.PNG/picture-1200?_=187147e0198" class="gig-icon" alt="Katubaari Axu" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Ou’touhka</div>
+                <div class="venue">Katubaari Axu</div>
+            </div>
+        </div>
+        </a><a href="https://nokiaarena.fi/en/events/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://nokiaarena.fi/wp-content/uploads/2023/02/cropped-favicon-192x192.png" class="gig-icon" alt="Nokia Arena" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Turisti</div>
+                <div class="venue">Nokia Arena</div>
+            </div>
+        </div>
+        </a><a href="https://kujakolli.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://kujakolli.fi/wordpress/wp-content/uploads/2019/03/logo.png" class="gig-icon" alt="Pub Kujakolli" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">J. Jyrkänkoski Blues Band</div>
+                <div class="venue">Pub Kujakolli</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Us</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Apulanta [Pakkahuone]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://www.facebook.com/Varjobaari/events/?ref=page_internal" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Varjobaari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Northwind, Vasari, Lein, Lohdunsyöjä</div>
+                <div class="venue">Varjobaari</div>
+            </div>
+        </div>
+        </a><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Atomirotta, Kormus</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><div class="date-header">Tuesday, 24 Nov</div><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">TYK @ G Livelab</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Gwenifer Raymond</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><div class="date-header">Wednesday, 25 Nov</div><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Johanna Iivanainen</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Pepe Willberg</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Seminola</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><div class="date-header">Thursday, 26 Nov</div><a href="https://www.glivelab.fi/tampere/#events" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://glivelab.fi/wp-content/themes/glivelab/favicons/favicon.ico" class="gig-icon" alt="G Livelab Tampere" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Vapaat äänet 30 vuotta: Lotus Flowers, Antti Lötjönen</div>
+                <div class="venue">G Livelab Tampere</div>
+            </div>
+        </div>
+        </a><a href="http://www.telakka.eu/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.telakka.eu/wp-content/uploads/2017/01/cropped-logo512x512-192x192.gif" class="gig-icon" alt="Ravintola Telakka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Fränder, Tsuumi Sound System</div>
+                <div class="venue">Ravintola Telakka</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tabula Rasa, Fantasia</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Kissa, Lala Salama [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://teatteri.valkeakoski.fi/ohjelmisto/cafe-teatro/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Valkeakoski: Café Teatro" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Isara</div>
+                <div class="venue">Valkeakoski: Café Teatro</div>
+            </div>
+        </div>
+        </a><div class="date-header">Friday, 27 Nov</div><a href="https://johnscotts.se/ratina/event/john-scotts-ratina-live/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=J" class="gig-icon" alt="John Scott’s" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Electric Marmalade – Aki Sirkesalo -tribuutti</div>
+                <div class="venue">John Scott’s</div>
+            </div>
+        </div>
+        </a><a href="https://www.katubaariaxu.fi/Tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.katubaariaxu.fi/.cm4all/uproc.php/0/.Tampereen%20ratikka.PNG/picture-1200?_=187147e0198" class="gig-icon" alt="Katubaari Axu" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Huojuva Komppi</div>
+                <div class="venue">Katubaari Axu</div>
+            </div>
+        </div>
+        </a><a href="https://www.tahmelanhuvila.fi/tulevat-tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tahmelanhuvila.fi/wp-content/uploads/2022/06/huvila_vaaka_punainen_testi3105.png.webp" class="gig-icon" alt="Tahmelan huvila" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Jussi Syren And The Groundbreakers</div>
+                <div class="venue">Tahmelan huvila</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Tampere Filharmonia: Romanttiset suosikit</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://ttt-teatteri.fi/ttt-klubin-esityskalenteri/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://ttt-teatteri.fi/favicon.svg" class="gig-icon" alt="TTT-Klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Masa Orpana Honk</div>
+                <div class="venue">TTT-Klubi</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Josén Pimeä Puoli [Klubi]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Dominutz</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><a href="https://www.waltikka.fi/tapahtumakalenteri/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Valkeakoski: Rantahotelli Waltikka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Vesterinen Yhtyeineen</div>
+                <div class="venue">Valkeakoski: Rantahotelli Waltikka</div>
+            </div>
+        </div>
+        </a><div class="date-header">Saturday, 28 Nov</div><a href="https://barkotelo.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://barkotelo.fi/gallery/Kotelo_neg.jpg?ts=1767886429" class="gig-icon" alt="Bar Kotelo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Die Oberherren, Dharma Guns, Rob Coffinshaker</div>
+                <div class="venue">Bar Kotelo</div>
+            </div>
+        </div>
+        </a><a href="https://www.katubaariaxu.fi/Tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.katubaariaxu.fi/.cm4all/uproc.php/0/.Tampereen%20ratikka.PNG/picture-1200?_=187147e0198" class="gig-icon" alt="Katubaari Axu" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Moonlight Bandits</div>
+                <div class="venue">Katubaari Axu</div>
+            </div>
+        </div>
+        </a><a href="https://kujakolli.fi/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://kujakolli.fi/wordpress/wp-content/uploads/2019/03/logo.png" class="gig-icon" alt="Pub Kujakolli" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Huojuva Komppi</div>
+                <div class="venue">Pub Kujakolli</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Lumiukko-elokuvakonsertti</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Anssi Kela</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><a href="https://tavara-asema.fi/ohjelma/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://tavara-asema.fi/wp-content/themes/tavara-asema/img/favicon.png?v=2" class="gig-icon" alt="Tavara-asema" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Costi, uu$er</div>
+                <div class="venue">Tavara-asema</div>
+            </div>
+        </div>
+        </a><a href="_wp_link_placeholder" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=T" class="gig-icon" alt="Tullikamari" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Stam1na, Stoned Statues [Pakkahuone]</div>
+                <div class="venue">Tullikamari</div>
+            </div>
+        </div>
+        </a><a href="https://vastavirta.net/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://vastavirta.net/wp-content/uploads/vv-favicon.png" class="gig-icon" alt="Vastavirta-klubi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Wyatt E, Fife the Hierophant, Radien</div>
+                <div class="venue">Vastavirta-klubi</div>
+            </div>
+        </div>
+        </a><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Kaseva</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><a href="https://www.waltikka.fi/tapahtumakalenteri/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=V" class="gig-icon" alt="Valkeakoski: Rantahotelli Waltikka" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Pandora, Waldo’s People</div>
+                <div class="venue">Valkeakoski: Rantahotelli Waltikka</div>
+            </div>
+        </div>
+        </a><div class="date-header">Sunday, 29 Nov</div><a href="https://www.tampere-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://www.tampere-talo.fi/wp-content/uploads/2022/05/cropped-TampereTalo_Favicon_512x512.png" class="gig-icon" alt="Tampere-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Herrasmiehet lavalla: Pasi Kaunisto, Erkki Liikanen, Danny, Eino Grön, Kai Hyttinen ja Eikka Eronen</div>
+                <div class="venue">Tampere-talo</div>
+            </div>
+        </div>
+        </a><div class="date-header">Monday, 30 Nov</div><a href="https://kangasala-talo.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Kangasala: Kangasala-talo" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">ProG</div>
+                <div class="venue">Kangasala: Kangasala-talo</div>
+            </div>
+        </div>
+        </a><a href="https://pirkkalasali.fi/tapahtumat/" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=P" class="gig-icon" alt="Pirkkala: Pirkkala-sali" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Pirkan opiston muskarilaisten joulukonsertti</div>
+                <div class="venue">Pirkkala: Pirkkala-sali</div>
+            </div>
+        </div>
+        </a><div class="date-header">Tuesday, 1 Dec</div><a href="https://www.tampere-talo.fi/tapahtumat/?em_l=list" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Komediateatteri / Palatsi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Jazzjoulu 2026</div>
+                <div class="venue">Komediateatteri / Palatsi</div>
+            </div>
+        </div>
+        </a><div class="date-header">Thursday, 17 Dec</div><a href="https://www.tampere.fi/kirjastot/kirjastojen-tapahtumat" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=M" class="gig-icon" alt="Metso" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Metso Live: Rebekka Holi</div>
+                <div class="venue">Metso</div>
+            </div>
+        </div>
+        </a><div class="date-header">Saturday, 19 Dec</div><a href="https://www.tampere-talo.fi/tapahtumat/?em_l=list" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; color: inherit;">
+        <div class="gig-card">
+            <img src="https://placehold.co/50?text=K" class="gig-icon" alt="Komediateatteri / Palatsi" />
+            <div class="time"></div>
+            <div class="details">
+                <div class="artist">Noora Louhimo – Joulun hetki</div>
+                <div class="venue">Komediateatteri / Palatsi</div>
+            </div>
+        </div>
+        </a>
+        </main>
+
+        <footer>
+            Updated: 10/31/2026, 1:17:01 PM<br>
+            Source: kulttuuritoimitus.fi
+        </footer>
+    </div>
+</body>
+</html>
